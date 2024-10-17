@@ -1,57 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
+#define MAX_KEYWORDS 32
+#define MAX_KEYWORD_LENGTH 10
+#define MAX_BUFFER_SIZE 31
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<ctype.h>
- 
-int isKeyword(char buffer[])
-{
-  char keywords[32][10] =
-    {"auto","break","case","char","const","continue","default","do","double","else","enum","extern","float","for","goto","if","int","long","register","return","short","signed","sizeof","static","struct","switch","typedef","union",
-"unsigned","void","volatile","while"};
-int i;
-for(i = 0; i < 32; ++i){
-	if(strcmp(keywords[i], buffer) == 0){
-		return 1;
-	}
+const char *keywords[] = {
+    "auto", "break", "case", "char", "const", "continue", "default", "do",
+    "double", "else", "enum", "extern", "float", "for", "goto", "if",
+    "int", "long", "register", "return", "short", "signed", "sizeof", "static",
+    "struct", "switch", "typedef", "union", "unsigned", "void", "volatile", "while"
+};
+
+int isKeyword(const char *buffer) {
+    for (int i = 0; i < MAX_KEYWORDS; i++) {
+        if (strcmp(keywords[i], buffer) == 0) {
+            return 1;
+        }
+    }
+    return 0;
 }
-return 0;
-}
- 
+
 int main() {
-	char c, buffer[31], operators[] = "+-*/%=";
-	FILE *fp;
-	int i, j=0;
-	
-	fp = fopen("program.txt","r");
-	
-	if(fp == NULL){
-		printf("Error while opening the file\n");
-		exit(0);
-	}
-	
-	while((c = fgetc(fp)) != EOF) {
-   		for(i = 0; i < 6; ++i){
-   			if(c == operators[i])
-   				printf("%c is operator\n", c);
-   		}
-   		
-   		if(isalnum(c)) {
-   			buffer[j++] = c;
-   		} else if((c == ' ' || c =='\t' || c == '\n') && (j != 0)) {
-		    buffer[j] = '\0';
-		    j = 0;
-		    if(isKeyword(buffer) == 1)
-   				printf("%s is keyword\n", buffer);
-   			else
-   				printf("%s is identifier\n", buffer);
-   		}
-	}
-	fclose(fp);
-	return 0;
+    char c, buffer[MAX_BUFFER_SIZE];
+    const char *operators = "+-*/%=";
+    FILE *fp = fopen("program.txt", "r");
+    int bufferIndex = 0;
+
+    if (fp == NULL) {
+        printf("Error while opening the file\n");
+        return 1;
+    }
+
+    while ((c = fgetc(fp)) != EOF) {
+        if (strchr(operators, c)) {
+            printf("%c is operator\n", c);
+        }
+
+        if (isalnum(c)) {
+            buffer[bufferIndex++] = c;
+        } else if ((c == ' ' || c == '\t' || c == '\n') && bufferIndex > 0) {
+            buffer[bufferIndex] = '\0';
+            printf("%s is %s\n", buffer, isKeyword(buffer) ? "keyword" : "identifier");
+            bufferIndex = 0;
+        }
+    }
+
+    fclose(fp);
+    return 0;
 }
-
-
-
-

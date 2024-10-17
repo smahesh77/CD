@@ -81,10 +81,9 @@
 #line 2 "variable.y"
 
     #include <stdio.h>
-    #include <stdlib.h>
-    
+   
     int valid = 1;
-    
+    int yylex(void);
     void yyerror(const char *s);
 
 
@@ -119,7 +118,7 @@ typedef int YYSTYPE;
 
 
 /* Line 216 of yacc.c.  */
-#line 123 "y.tab.c"
+#line 122 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -401,7 +400,7 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    14,    14,    15,    16,    17
+       0,    13,    13,    14,    15,    16
 };
 #endif
 
@@ -1299,7 +1298,7 @@ yyreduce:
     {
       
 /* Line 1267 of yacc.c.  */
-#line 1303 "y.tab.c"
+#line 1302 "y.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1513,11 +1512,11 @@ yyreturn:
 }
 
 
-#line 19 "variable.y"
+#line 18 "variable.y"
 
 
 void yyerror(const char *s) {
-    printf("\nIt's not an identifier!\n");
+    printf("\nIt's not an identifier!\n%s", s);
     valid = 0;
 }
 

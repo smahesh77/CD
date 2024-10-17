@@ -20,10 +20,10 @@ void yyerror(const char *s);
 %%
 
 S       : ST                    { printf("Input accepted\n"); exit(0); }
-        ;
+        
 
-ST      : FOR '(' DECLARATION ';' E2 ';' E ')' DEF
-        ;
+ST      : FOR '(' DECLARATION ';' E2 ';' E3 ')' DEF
+        
 
 DECLARATION : INT ID '=' E
             | ID '=' E
@@ -40,7 +40,6 @@ BODY    : BODY BODY
         | ST
         |
         ;
-
 E       : ID '=' E
         | E '+' E
         | E '-' E
@@ -60,7 +59,6 @@ E       : ID '=' E
         | NUM
         | '(' E ')'
         ;
-
 E2      : E '<' E
         | E '>' E
         | E LE E
@@ -69,6 +67,15 @@ E2      : E '<' E
         | E NE E
         | E OR E
         | E AND E
+        |
+        ;
+E3      : ID '=' E
+        | E3 '+' E3
+        | E3 '-' E3
+        | E3 '*' E3
+        | E3 '/' E3
+        | ID '+' '+'
+        | ID '-' '-'
         |
         ;
 

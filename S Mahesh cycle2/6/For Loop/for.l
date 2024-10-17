@@ -1,11 +1,7 @@
 %{
 #include "y.tab.h"
 #include <stdio.h>
-
-#define YY_NO_UNPUT
-#define YY_NO_INPUT
 %}
-
 %option noyywrap
 
 alpha [A-Za-z]

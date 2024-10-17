@@ -459,11 +459,8 @@ char *yytext;
 #line 2 "for.l"
 #include "y.tab.h"
 #include <stdio.h>
-
-#define YY_NO_UNPUT
-#define YY_NO_INPUT
-#line 465 "lex.yy.c"
-#line 466 "lex.yy.c"
+#line 462 "lex.yy.c"
+#line 463 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -680,10 +677,10 @@ YY_DECL
 		}
 
 	{
-#line 14 "for.l"
+#line 10 "for.l"
 
 
-#line 686 "lex.yy.c"
+#line 683 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -743,70 +740,70 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 16 "for.l"
+#line 12 "for.l"
 ; /* Ignore whitespace */
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 17 "for.l"
+#line 13 "for.l"
 return FOR;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 18 "for.l"
+#line 14 "for.l"
 return INT;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 19 "for.l"
+#line 15 "for.l"
 { yylval = atoi(yytext); return NUM; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 20 "for.l"
+#line 16 "for.l"
 { return ID; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 21 "for.l"
+#line 17 "for.l"
 return LE;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 22 "for.l"
+#line 18 "for.l"
 return GE;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 23 "for.l"
+#line 19 "for.l"
 return EQ;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 24 "for.l"
+#line 20 "for.l"
 return NE;
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 25 "for.l"
+#line 21 "for.l"
 return OR;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 26 "for.l"
+#line 22 "for.l"
 return AND;
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 27 "for.l"
+#line 23 "for.l"
 return yytext[0];
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 29 "for.l"
+#line 25 "for.l"
 ECHO;
 	YY_BREAK
-#line 809 "lex.yy.c"
+#line 806 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1811,5 +1808,5 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 29 "for.l"
+#line 25 "for.l"
 

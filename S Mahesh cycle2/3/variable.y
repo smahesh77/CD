@@ -1,8 +1,7 @@
 /* Parser (yacc.y) */
 %{
     #include <stdio.h>
-    #include <stdlib.h>
-    
+   
     int valid = 1;
     int yylex(void);
     void yyerror(const char *s);
@@ -19,7 +18,7 @@ s     : LETTER s
 %%
 
 void yyerror(const char *s) {
-    printf("\nIt's not an identifier!\n");
+    printf("\nIt's not an identifier!\n%s", s);
     valid = 0;
 }
 

@@ -93,8 +93,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-extern int yylex(void);
-extern int yyparse(void);
+int yylex(void);
 extern FILE *yyin;
 
 void yyerror(const char *msg) {
@@ -135,7 +134,7 @@ typedef int YYSTYPE;
 
 
 /* Line 216 of yacc.c.  */
-#line 139 "y.tab.c"
+#line 138 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -419,7 +418,7 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    24,    24,    25,    26,    30,    31,    32,    36,    37
+       0,    23,    23,    24,    25,    29,    30,    31,    35,    36
 };
 #endif
 
@@ -1321,48 +1320,48 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 24 "calculator.y"
+#line 23 "calculator.y"
     { result = (yyvsp[(1) - (1)]); }
     break;
 
   case 3:
-#line 25 "calculator.y"
+#line 24 "calculator.y"
     { result = (yyvsp[(1) - (3)]) + (yyvsp[(3) - (3)]); }
     break;
 
   case 4:
-#line 26 "calculator.y"
+#line 25 "calculator.y"
     { result = (yyvsp[(1) - (3)]) - (yyvsp[(3) - (3)]); }
     break;
 
   case 5:
-#line 30 "calculator.y"
+#line 29 "calculator.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 6:
-#line 31 "calculator.y"
+#line 30 "calculator.y"
     { (yyval) = (yyvsp[(1) - (3)]) * (yyvsp[(3) - (3)]); }
     break;
 
   case 7:
-#line 32 "calculator.y"
+#line 31 "calculator.y"
     { (yyval) = (yyvsp[(1) - (3)]) / (yyvsp[(3) - (3)]); }
     break;
 
   case 8:
-#line 36 "calculator.y"
+#line 35 "calculator.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 9:
-#line 37 "calculator.y"
+#line 36 "calculator.y"
     { (yyval) = result; }
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1366 "y.tab.c"
+#line 1365 "y.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1576,7 +1575,7 @@ yyreturn:
 }
 
 
-#line 40 "calculator.y"
+#line 39 "calculator.y"
 
 
 int main() {

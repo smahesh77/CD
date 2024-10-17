@@ -323,6 +323,9 @@ void yyfree ( void *  );
 #define YY_AT_BOL() (YY_CURRENT_BUFFER_LVALUE->yy_at_bol)
 
 /* Begin user sect3 */
+
+#define yywrap() (/*CONSTCOND*/1)
+#define YY_SKIP_YYWRAP
 typedef flex_uint8_t YY_CHAR;
 
 FILE *yyin = NULL, *yyout = NULL;
@@ -352,8 +355,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 5
-#define YY_END_OF_BUFFER 6
+#define YY_NUM_RULES 4
+#define YY_END_OF_BUFFER 5
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -363,7 +366,7 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[10] =
     {   0,
-        0,    0,    6,    3,    4,    2,    1,    1,    0
+        0,    0,    5,    4,    3,    2,    1,    1,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -377,7 +380,7 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    4,    4,    4,    4,    4,    4,
         4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
         4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
-        1,    1,    1,    1,    4,    1,    4,    4,    4,    4,
+        1,    1,    1,    1,    1,    1,    4,    4,    4,    4,
 
         4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
         4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
@@ -400,7 +403,7 @@ static const YY_CHAR yy_ec[256] =
 
 static const YY_CHAR yy_meta[5] =
     {   0,
-        1,    1,    2,    2
+        1,    1,    1,    2
     } ;
 
 static const flex_int16_t yy_base[11] =
@@ -444,8 +447,8 @@ char *yytext;
 #line 3 "variable.l"
     #include <stdio.h>
     #include "y.tab.h"
-#line 447 "lex.yy.c"
-#line 448 "lex.yy.c"
+#line 450 "lex.yy.c"
+#line 451 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -662,9 +665,9 @@ YY_DECL
 		}
 
 	{
-#line 7 "variable.l"
+#line 9 "variable.l"
 
-#line 667 "lex.yy.c"
+#line 670 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -723,31 +726,26 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 8 "variable.l"
+#line 10 "variable.l"
 return LETTER;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 9 "variable.l"
+#line 11 "variable.l"
 return DIGIT;
 	YY_BREAK
 case 3:
-YY_RULE_SETUP
-#line 10 "variable.l"
-return yytext[0];
-	YY_BREAK
-case 4:
-/* rule 4 can match eol */
-YY_RULE_SETUP
-#line 11 "variable.l"
-return 0;
-	YY_BREAK
-case 5:
+/* rule 3 can match eol */
 YY_RULE_SETUP
 #line 12 "variable.l"
+return 0;
+	YY_BREAK
+case 4:
+YY_RULE_SETUP
+#line 13 "variable.l"
 ECHO;
 	YY_BREAK
-#line 750 "lex.yy.c"
+#line 748 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1752,9 +1750,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 12 "variable.l"
+#line 13 "variable.l"
 
 
-int yywrap() {
-    return 1;
-}
+
